@@ -535,12 +535,21 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
         checkNull(operands, "operands", true);
         return new OWLObjectIntersectionOfImpl(operands);
     }
+    
+    @Nonnull
+    @Override
+    public OWLObjectIntersectionOf getOWLObjectIntersectionOf(
+            @Nonnull List<? extends OWLClassExpression> operands) {
+        checkNull(operands, "operands", true);
+        return new OWLObjectIntersectionOfImpl(operands);
+    }
 
     @Override
     public OWLObjectIntersectionOf getOWLObjectIntersectionOf(
             OWLClassExpression... operands) {
         checkNull(operands, "operands", true);
-        return getOWLObjectIntersectionOf(CollectionFactory.createSet(operands));
+//        return getOWLObjectIntersectionOf(CollectionFactory.createSet(operands));
+        return getOWLObjectIntersectionOf(Arrays.asList(operands));
     }
 
     @Nonnull
@@ -760,11 +769,20 @@ public class OWLDataFactoryImpl implements OWLDataFactory, Serializable,
         checkNull(operands, "operands", true);
         return new OWLObjectUnionOfImpl(operands);
     }
+    
+    @Nonnull
+    @Override
+    public OWLObjectUnionOf getOWLObjectUnionOf(
+            @Nonnull List<? extends OWLClassExpression> operands) {
+        checkNull(operands, "operands", true);
+        return new OWLObjectUnionOfImpl(operands);
+    }
 
     @Override
     public OWLObjectUnionOf getOWLObjectUnionOf(OWLClassExpression... operands) {
         checkNull(operands, "operands", true);
-        return getOWLObjectUnionOf(CollectionFactory.createSet(operands));
+//        return getOWLObjectUnionOf(CollectionFactory.createSet(operands));
+        return getOWLObjectUnionOf(Arrays.asList(operands));
     }
 
     @Nonnull

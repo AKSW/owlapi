@@ -13,6 +13,7 @@
 package uk.ac.manchester.cs.owl.owlapi;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
@@ -47,6 +48,15 @@ public class OWLObjectIntersectionOfImpl extends
      */
     public OWLObjectIntersectionOfImpl(
             @Nonnull Set<? extends OWLClassExpression> operands) {
+        super(operands);
+    }
+    
+    /**
+     * @param operands
+     *        operands
+     */
+    public OWLObjectIntersectionOfImpl(
+            @Nonnull List<? extends OWLClassExpression> operands) {
         super(operands);
     }
 

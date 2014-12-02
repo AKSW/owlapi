@@ -13,6 +13,7 @@
 package uk.ac.manchester.cs.owl.owlapi;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
@@ -47,6 +48,15 @@ public class OWLObjectUnionOfImpl extends OWLNaryBooleanClassExpressionImpl
      */
     public OWLObjectUnionOfImpl(
             @Nonnull Set<? extends OWLClassExpression> operands) {
+        super(operands);
+    }
+    
+    /**
+     * @param operands
+     *        operands
+     */
+    public OWLObjectUnionOfImpl(
+            @Nonnull List<? extends OWLClassExpression> operands) {
         super(operands);
     }
 

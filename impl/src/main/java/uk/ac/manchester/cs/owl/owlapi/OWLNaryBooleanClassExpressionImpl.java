@@ -39,7 +39,8 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
 
     private static final long serialVersionUID = 40000L;
     @Nonnull
-    private final Set<OWLClassExpression> operands;
+//    private final Set<OWLClassExpression> operands;
+    private final List<OWLClassExpression> operands;
 
     /**
      * @param operands
@@ -47,7 +48,21 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
      */
     public OWLNaryBooleanClassExpressionImpl(
             @Nonnull Set<? extends OWLClassExpression> operands) {
-        this.operands = new TreeSet<>(checkNotNull(operands,
+//        this.operands = new TreeSet<>(checkNotNull(operands,
+//                "operands cannot be null"));
+    	this.operands = new ArrayList<>(checkNotNull(operands,
+                "operands cannot be null"));
+    }
+    
+    /**
+     * @param operands
+     *        operands
+     */
+    public OWLNaryBooleanClassExpressionImpl(
+            @Nonnull List<? extends OWLClassExpression> operands) {
+//        this.operands = new TreeSet<>(checkNotNull(operands,
+//                "operands cannot be null"));
+    	this.operands = new ArrayList<>(checkNotNull(operands,
                 "operands cannot be null"));
     }
 
