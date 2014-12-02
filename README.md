@@ -19,12 +19,15 @@ The following components are included:
 * KRSS parser
 * OBO format parser
 * Reasoner interfaces for working with reasoners such as FaCT++, HermiT, Pellet, Racer, JFact and Chainsaw.
-* 
 
 DL-Learner modifications
 =====
 
+Allow for class expressions containing (A AND A) and (A OR A)
+
 * OWLNaryBooleanClassExpressionImpl
+* OWLObjectUnionOfImpl
+* OWLObjectIntersectionOfImpl
 * OWLDataFactory
 * OWLDataFactoryImpl
 * SimpleRenderer
