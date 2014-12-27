@@ -60,6 +60,20 @@ public class ManchesterOWLSyntaxOWLObjectRendererImpl implements
         ren = new ManchesterOWLSyntaxObjectRenderer(writerDelegate,
                 shortFormProvider);
     }
+    
+    /* (non-Javadoc)
+     * @see org.semanticweb.owlapi.manchestersyntax.renderer.AbstractRenderer#setUseWrapping(boolean)
+     */
+    public void setUseWrapping(boolean useWrapping) {
+    	ren.setUseWrapping(useWrapping);
+    }
+    
+    /* (non-Javadoc)
+     * @see org.semanticweb.owlapi.manchestersyntax.renderer.AbstractRenderer#setUseTabbing(boolean)
+     */
+    public void setUseTabbing(boolean useTabbing) {
+    	ren.setUseTabbing(useTabbing);
+    }
 
     private static class WriterDelegate extends Writer {
 

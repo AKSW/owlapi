@@ -15,6 +15,7 @@ package uk.ac.manchester.cs.owl.owlapi;
 import static org.semanticweb.owlapi.util.OWLAPIPreconditions.checkNotNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -50,7 +51,7 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
             @Nonnull Set<? extends OWLClassExpression> operands) {
 //        this.operands = new TreeSet<>(checkNotNull(operands,
 //                "operands cannot be null"));
-    	this.operands = new ArrayList<>(checkNotNull(operands,
+    	this.operands = new ArrayList<>(checkNotNull(new TreeSet<>(operands),
                 "operands cannot be null"));
     }
     
@@ -103,14 +104,14 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
                 return false;
             }
             return ((OWLNaryBooleanClassExpression) obj).getOperands().equals(
-                    operands);
+                    getOperands());
         }
         return false;
     }
 
     @Override
     protected int compareObjectOfSameType(OWLObject object) {
-        return compareSets(operands,
+        return compareSets(getOperands(),
                 ((OWLNaryBooleanClassExpression) object).getOperands());
     }
 }

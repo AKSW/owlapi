@@ -288,17 +288,17 @@
 					<argLine>-Xmx1024M -Djava.awt.headless=true</argLine>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.2</version>
-				<extensions>true</extensions>
-				<configuration>
-					<serverId>ossrh</serverId>
-					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-					<autoReleaseAfterClose>true</autoReleaseAfterClose>
-				</configuration>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.sonatype.plugins</groupId> -->
+<!-- 				<artifactId>nexus-staging-maven-plugin</artifactId> -->
+<!-- 				<version>1.6.2</version> -->
+<!-- 				<extensions>true</extensions> -->
+<!-- 				<configuration> -->
+<!-- 					<serverId>ossrh</serverId> -->
+<!-- 					<nexusUrl>https://oss.sonatype.org/</nexusUrl> -->
+<!-- 					<autoReleaseAfterClose>true</autoReleaseAfterClose> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 			<!-- the FindBugs plugin for extra checks -->
 			<!--plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -331,4 +331,18 @@
 		<developerConnection>scm:git:git@github.com:owlcs/owlapi.git</developerConnection>
 		<url>https://github.com/owlcs/owlapi</url>
 	</scm>
+	
+	 <distributionManagement>
+                <repository>
+                        <id>maven.aksw.internal</id>
+                        <name>AKSW Internal Release Repository</name>
+                        <url>http://maven.aksw.org/repository/internal</url>
+                </repository>
+                <snapshotRepository>
+                        <id>maven.aksw.snapshots</id>
+                        <name>AKSW Snapshot Repository</name>
+                        <url>http://maven.aksw.org/repository/snapshots</url>
+                </snapshotRepository>
+        </distributionManagement>
+	
 </project>

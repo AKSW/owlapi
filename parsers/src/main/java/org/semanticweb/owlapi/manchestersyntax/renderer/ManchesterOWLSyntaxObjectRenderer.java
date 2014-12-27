@@ -310,7 +310,7 @@ public class ManchesterOWLSyntaxObjectRenderer extends AbstractRenderer
 
     @Override
     public void visit(@Nonnull OWLAnonymousIndividual individual) {
-        write(individual.toString());
+        write(individual.toStringID());
     }
 
     @Override
@@ -961,6 +961,22 @@ public class ManchesterOWLSyntaxObjectRenderer extends AbstractRenderer
         writeNewLine();
         writeNewLine();
         popTab();
+    }
+    
+    /* (non-Javadoc)
+     * @see org.semanticweb.owlapi.manchestersyntax.renderer.AbstractRenderer#setUseWrapping(boolean)
+     */
+    @Override
+    public void setUseWrapping(boolean useWrapping) {
+    	super.setUseWrapping(useWrapping);
+    }
+    
+    /* (non-Javadoc)
+     * @see org.semanticweb.owlapi.manchestersyntax.renderer.AbstractRenderer#setUseTabbing(boolean)
+     */
+    @Override
+    public void setUseTabbing(boolean useTabbing) {
+    	super.setUseTabbing(useTabbing);
     }
 
     // Ontology
