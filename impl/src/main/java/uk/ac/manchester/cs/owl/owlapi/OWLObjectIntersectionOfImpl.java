@@ -39,7 +39,7 @@ public class OWLObjectIntersectionOfImpl extends
 
     @Override
     protected int index() {
-        return OWLObjectTypeIndexProvider.CLASS_EXPRESSION_TYPE_INDEX_BASE + 1;
+        return OWLObjectTypeIndexProvider.CLASS_EXPRESSION_TYPE_INDEX_BASE + 21;
     }
 
     /**

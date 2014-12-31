@@ -39,7 +39,7 @@ public class OWLObjectUnionOfImpl extends OWLNaryBooleanClassExpressionImpl
 
     @Override
     protected int index() {
-        return OWLObjectTypeIndexProvider.CLASS_EXPRESSION_TYPE_INDEX_BASE + 2;
+        return OWLObjectTypeIndexProvider.CLASS_EXPRESSION_TYPE_INDEX_BASE + 22;
     }
 
     /**

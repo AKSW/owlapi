@@ -15,7 +15,6 @@ package uk.ac.manchester.cs.owl.owlapi;
 import static org.semanticweb.owlapi.util.OWLAPIPreconditions.checkNotNull;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -111,7 +110,7 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
 
     @Override
     protected int compareObjectOfSameType(OWLObject object) {
-        return compareSets(getOperands(),
-                ((OWLNaryBooleanClassExpression) object).getOperands());
+        return compareLists(getOperandsAsList(),
+                ((OWLNaryBooleanClassExpression) object).getOperandsAsList());
     }
 }

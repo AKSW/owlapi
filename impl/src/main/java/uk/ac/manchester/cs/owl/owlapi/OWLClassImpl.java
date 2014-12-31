@@ -36,6 +36,7 @@ public class OWLClassImpl extends OWLClassExpressionImpl implements OWLClass,
 
     @Override
     protected int index() {
+    	if(isOWLThing()) return 100;
         return OWLObjectTypeIndexProvider.OWL_CLASS;
     }
 

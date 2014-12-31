@@ -279,19 +279,35 @@ public abstract class OWLObjectImplWithoutEntityAndAnonCaching implements
         return ss1.size() - ss2.size();
     }
 
-    protected static int compareLists(List<? extends OWLObject> list1,
-            List<? extends OWLObject> list2) {
-        int i = 0;
-        int size = list1.size() < list2.size() ? list1.size() : list2.size();
-        while (i < size) {
-            OWLObject o1 = list1.get(i);
-            OWLObject o2 = list2.get(i);
-            int diff = o1.compareTo(o2);
-            if (diff != 0) {
-                return diff;
-            }
-            i++;
-        }
-        return list1.size() - list2.size();
-    }
+//    protected static int compareLists(List<? extends OWLObject> list1,
+//            List<? extends OWLObject> list2) {
+//        int i = 0;
+//        int size = list1.size() < list2.size() ? list1.size() : list2.size();
+//        while (i < size) {
+//            OWLObject o1 = list1.get(i);
+//            OWLObject o2 = list2.get(i);
+//            int diff = o1.compareTo(o2);
+//            if (diff != 0) {
+//                return diff;
+//            }
+//            i++;
+//        }
+//        return list1.size() - list2.size();
+//    }
+    
+	protected static int compareLists(List<? extends OWLObject> list1,
+			List<? extends OWLObject> list2) {
+		int sizeDiff = list1.size() - list2.size();// longer concept first
+		if (sizeDiff == 0) {
+			for (int i = 0; i < list1.size(); i++) {
+				OWLObject o1 = list1.get(i);
+				OWLObject o2 = list2.get(i);
+				int diff = o1.compareTo(o2);
+				if (diff != 0) {
+					return diff;
+				}
+			}
+		}
+		return sizeDiff;
+	}
 }
