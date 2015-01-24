@@ -39,6 +39,7 @@
 package uk.ac.manchester.cs.owl.owlapi;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.ClassExpressionType;
@@ -63,6 +64,14 @@ public class OWLObjectUnionOfImpl extends OWLNaryBooleanClassExpressionImpl
      *        operands
      */
     public OWLObjectUnionOfImpl(Set<? extends OWLClassExpression> operands) {
+        super(operands);
+    }
+    
+    /**
+     * @param operands
+     *        operands
+     */
+    public OWLObjectUnionOfImpl(List<? extends OWLClassExpression> operands) {
         super(operands);
     }
 

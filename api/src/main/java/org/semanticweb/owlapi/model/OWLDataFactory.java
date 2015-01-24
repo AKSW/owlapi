@@ -1089,6 +1089,14 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityProvider,
      */
     OWLObjectIntersectionOf getOWLObjectIntersectionOf(
             OWLClassExpression... operands);
+    
+	/**
+	 * @param operands
+	 *            Cannot be null or contain nulls.
+	 * @return an OWLObjectIntersectionOf on the specified operands
+	 */
+	OWLObjectIntersectionOf getOWLObjectIntersectionOf(
+			List<? extends OWLClassExpression> operands);
 
     // //////////////////////////////////////////////////////////////////////////////////
     //
@@ -1347,6 +1355,14 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityProvider,
      * @return a class union over the specified arguments
      */
     OWLObjectUnionOf getOWLObjectUnionOf(OWLClassExpression... operands);
+    
+	/**
+	 * @param operands
+	 *            class expressions for union
+	 * @return a class union over the specified arguments
+	 */
+	OWLObjectUnionOf getOWLObjectUnionOf(
+			List<? extends OWLClassExpression> operands);
 
     /****************************************************************************************************************/
     // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

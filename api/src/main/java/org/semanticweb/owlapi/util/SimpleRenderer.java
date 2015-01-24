@@ -38,7 +38,9 @@
  */
 package org.semanticweb.owlapi.util;
 
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -260,6 +262,17 @@ public class SimpleRenderer implements OWLObjectVisitor, OWLObjectRenderer {
 
     protected void render(Set<? extends OWLObject> objects) {
         for (Iterator<? extends OWLObject> it = toSortedSet(objects).iterator(); it
+                .hasNext();) {
+            it.next().accept(this);
+            if (it.hasNext()) {
+                sb.append(" ");
+            }
+        }
+    }
+    
+    protected void render(List<? extends OWLObject> objects) {
+    	Collections.sort(objects);
+        for (Iterator<? extends OWLObject> it = objects.iterator(); it
                 .hasNext();) {
             it.next().accept(this);
             if (it.hasNext()) {
@@ -617,14 +630,14 @@ public class SimpleRenderer implements OWLObjectVisitor, OWLObjectRenderer {
     @Override
     public void visit(OWLObjectIntersectionOf desc) {
         sb.append("ObjectIntersectionOf(");
-        render(desc.getOperands());
+        render(desc.getOperandsAsList());
         sb.append(")");
     }
 
     @Override
     public void visit(OWLObjectUnionOf desc) {
         sb.append("ObjectUnionOf(");
-        render(desc.getOperands());
+        render(desc.getOperandsAsList());
         sb.append(")");
     }
 

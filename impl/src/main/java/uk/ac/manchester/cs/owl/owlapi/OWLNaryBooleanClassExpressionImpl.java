@@ -57,7 +57,7 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
         OWLNaryBooleanClassExpression {
 
     private static final long serialVersionUID = 30406L;
-    private final Set<OWLClassExpression> operands;
+    private final List<OWLClassExpression> operands;
 
     /**
      * @param operands
@@ -66,7 +66,17 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
     public OWLNaryBooleanClassExpressionImpl(
             Set<? extends OWLClassExpression> operands) {
         super();
-        this.operands = new TreeSet<OWLClassExpression>(operands);
+        this.operands = new ArrayList<OWLClassExpression>(new TreeSet<OWLClassExpression>(operands));
+    }
+    
+    /**
+     * @param operands
+     *        operands
+     */
+    public OWLNaryBooleanClassExpressionImpl(
+            List<? extends OWLClassExpression> operands) {
+        super();
+        this.operands = new ArrayList<OWLClassExpression>(operands);
     }
 
     @Override
@@ -99,7 +109,7 @@ public abstract class OWLNaryBooleanClassExpressionImpl extends
 
     @Override
     protected int compareObjectOfSameType(OWLObject object) {
-        return compareSets(operands,
-                ((OWLNaryBooleanClassExpression) object).getOperands());
+        return compareLists(operands,
+                ((OWLNaryBooleanClassExpression) object).getOperandsAsList());
     }
 }

@@ -39,6 +39,7 @@
 package uk.ac.manchester.cs.owl.owlapi;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.ClassExpressionType;
@@ -64,6 +65,15 @@ public class OWLObjectIntersectionOfImpl extends
      */
     public OWLObjectIntersectionOfImpl(
             Set<? extends OWLClassExpression> operands) {
+        super(operands);
+    }
+    
+    /**
+     * @param operands
+     *        operands
+     */
+    public OWLObjectIntersectionOfImpl(
+            List<? extends OWLClassExpression> operands) {
         super(operands);
     }
 
